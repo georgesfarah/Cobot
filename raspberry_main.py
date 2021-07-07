@@ -3,10 +3,10 @@ import re
 
 def get_MAC_RSSI(text):
     pattern='[0-9a-fA-F]{2}:[0-9a-fA-F]{2}:[0-9a-fA-F]{2}:[0-9a-fA-F]{2}:[0-9a-fA-F]{2}:[0-9a-fA-F]{2}'
-    mac_addr_list = re.findall(pattern, text['output'])
+    mac_addr_list = re.findall(pattern, str(text['output']))
 
     pattern='(?<=Signal level=).*?(?= dBm)' #oui
-    rssi_list=re.findall(pattern, text['output'])
+    rssi_list=re.findall(pattern, str(text['output']))
 
     rssi_list=[int(elm) for elm in rssi_list]
 
