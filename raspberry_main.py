@@ -35,5 +35,4 @@ def get_apinfo(n=10):
     return result_tmp
 
 if __name__=='__main__':
-    ap_info = rssi_scanner.getRawNetworkScan()
-    print(ap_info)
+    print(get_apinfo())
