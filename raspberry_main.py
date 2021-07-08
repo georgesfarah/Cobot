@@ -21,6 +21,7 @@ def get_apinfo(n=10):
     result_tmp={}
     for i in range(n):
         ap_info = rssi_scanner.getRawNetworkScan()
+        print(ap_info)
         ap_info=get_MAC_RSSI(ap_info)
 
         if len(result_tmp.keys())==0:
