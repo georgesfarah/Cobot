@@ -14,9 +14,9 @@ firebase_admin.initialize_app(cred)
 db = firestore.client()
 
 
-def add_rssi(dict_rssi,location):
+def add_rssi(dict_rssi,location,collection_name):
     dict_rssi['location']=location
-    db.collection('RSSIs').add(dict_rssi)
+    db.collection(collection_name).add(dict_rssi)
 
 
 def get_RSSIs():
