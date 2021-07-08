@@ -1,9 +1,11 @@
 import firestore_main
 import raspberry_main
 
-n=10
-x='A'
-y='1'
-location='ROOM-1'+x+' '+y
+number_of_testing_points=int(input('number of testing points'))
+number_of_mes=10
 
-firestore_main.add_rssi(raspberry_main.get_apinfo(n),location)
+
+for i in range(number_of_testing_points):
+    ID=str(input("ID "))
+    firestore_main.add_rssi(raspberry_main.get_apinfo(number_of_mes),ID)
+

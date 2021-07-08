@@ -1,6 +1,9 @@
 import rssi
 import re
 
+
+
+
 def get_MAC_RSSI(text):
     pattern='[0-9a-fA-F]{2}:[0-9a-fA-F]{2}:[0-9a-fA-F]{2}:[0-9a-fA-F]{2}:[0-9a-fA-F]{2}:[0-9a-fA-F]{2}'
     mac_addr_list = re.findall(pattern, str(text['output']))
@@ -21,19 +24,23 @@ def get_apinfo(n=10):
     result_tmp={}
     for i in range(n):
         ap_info = rssi_scanner.getRawNetworkScan()
-        print(ap_info)
         ap_info=get_MAC_RSSI(ap_info)
 
-        if len(result_tmp.keys())==0:
-            result_tmp=ap_info
-        else:
-            for mac in ap_info:
-                result_tmp[mac]=result_tmp[mac]+ap_info[mac]
+        for mac in ap_info:
+            if mac in ap_info:
+                result_tmp[mac].append(ap_info[mac])
+            else:
+                result_tmp[mac]=[ap_info[mac]]
 
     for key in result_tmp:
-         result_tmp[key]=result_tmp[key]/n
+        result_tmp[key]=sum(result_tmp[key])/len(result_tmp[key])
 
     return result_tmp
 
+
+    
+
 if __name__=='__main__':
     print(get_apinfo())
+
+
