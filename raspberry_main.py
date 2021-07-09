@@ -27,7 +27,7 @@ def get_apinfo(n=10):
         ap_info=get_MAC_RSSI(ap_info)
 
         for mac in ap_info:
-            if mac in ap_info:
+            if mac in result_tmp:
                 result_tmp[mac].append(ap_info[mac])
             else:
                 result_tmp[mac]=[ap_info[mac]]
