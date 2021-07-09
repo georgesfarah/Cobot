@@ -22,15 +22,20 @@ rssi_scanner = rssi.RSSI_Scan(interface)
 
 def get_apinfo(n=10):
     result_tmp={}
-    for i in range(n):
-        ap_info = rssi_scanner.getRawNetworkScan()
-        ap_info=get_MAC_RSSI(ap_info)
+    while len(result_tmp)<3:
+        result_tmp={}
+        for i in range(n):
+            ap_info = rssi_scanner.getRawNetworkScan()
+            ap_info=get_MAC_RSSI(ap_info)
 
-        for mac in ap_info:
-            if mac in result_tmp:
-                result_tmp[mac].append(ap_info[mac])
-            else:
-                result_tmp[mac]=[ap_info[mac]]
+            if len(ap_info)<=3:
+                return
+
+            for mac in ap_info:
+                if mac in result_tmp:
+                    result_tmp[mac].append(ap_info[mac])
+                else:
+                    result_tmp[mac]=[ap_info[mac]]
 
     for key in result_tmp:
         result_tmp[key]=sum(result_tmp[key])/len(result_tmp[key])
@@ -38,9 +43,6 @@ def get_apinfo(n=10):
     return result_tmp
 
 
-    
 
 if __name__=='__main__':
     print(get_apinfo())
-
-
