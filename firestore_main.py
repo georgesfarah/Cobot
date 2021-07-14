@@ -3,7 +3,6 @@ import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import firestore
 import csv
-import pandas as pd
 # https://faun.pub/getting-started-with-firebase-cloud-firestore-using-python-c6ab3f5ecae0
 # https://firebase.google.com/docs/admin/setup?authuser=0#python
 
