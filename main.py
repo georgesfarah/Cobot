@@ -12,6 +12,6 @@ for sections in range(collection):
         number_of_testing_points=int(input('number of testing points '))
         for j in range(number_of_testing_points):
             ID=str(input("ID "))
-            #time.sleep(5)
+            time.sleep(5)
             firestore_main.add_rssi(raspberry_main.get_apinfo(number_of_measurements),ID,collection_name)
 

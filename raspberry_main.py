@@ -29,7 +29,7 @@ def get_apinfo(n=10):
             ap_info=get_MAC_RSSI(ap_info)
 
             if len(ap_info)<=3:
-                return
+                break
 
             for mac in ap_info:
                 if mac in result_tmp:
