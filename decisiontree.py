@@ -15,9 +15,10 @@ y=le.fit_transform(y_tmp)
 
 X=accuracy1_data
 X=X.drop(['location'], axis = 1)
+X=(X-X.mean())/X.std()
 
 # Split into training and test set
-X_train, X_test, y_train, y_test = train_test_split(X, y,test_size=5, random_state=10,stratify=y)
+X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=1,stratify=y)
 
 dt_model=DecisionTreeClassifier(random_state=0)
 dt_model.fit(X_train,y_train)

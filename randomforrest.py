@@ -15,8 +15,12 @@ y=le.fit_transform(y_tmp)
 
 X=accuracy1_data
 X=X.drop(['location'], axis = 1)
+X=X/X.max()
 
 # Split into training and test set
-X_train, X_test, y_train, y_test = train_test_split(X, y,test_size=8, random_state=10,stratify=y)
+X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=0, stratify=y)
 
 clf = RandomForestClassifier(random_state=0)
+clf.fit(X_train, y_train)
+
+print(clf.score(X_test, y_test))
