@@ -39,7 +39,7 @@ def gen_snapshots_list(header,snapshots):
     return out
 
 def genCSV(header,snapshots_list,collection_name):
-    csv_file=collection_name+'.csv'
+    csv_file='Datasets/'+collection_name+'.csv'
     with open(csv_file, 'w', newline='') as csvfile:
         writer = csv.DictWriter(csvfile, fieldnames=header)
         writer.writeheader()
