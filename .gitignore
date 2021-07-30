@@ -2,3 +2,5 @@
 *.pyc
 secret.json
 Models/tmp/
+
+test.py
