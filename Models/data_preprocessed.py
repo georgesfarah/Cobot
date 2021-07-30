@@ -12,9 +12,9 @@ y_tmp=accuracy1_data['location']
 le = LabelEncoder()
 y=le.fit_transform(y_tmp)
 
-X=accuracy1_data
-X.drop(['location','C2:2B:F9:8D:63:ED'],inplace=True, axis = 1)
-X=accuracy1_data.fillna(value=-150)
+X=accuracy1_data.drop(['location','C2:2B:F9:8D:63:ED'], axis = 1)
+X=X.fillna(value=-150)
+X=(X-X.mean())/X.std()
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=1,stratify=y)
 
