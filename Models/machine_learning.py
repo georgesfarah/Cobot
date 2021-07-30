@@ -9,7 +9,7 @@ dt_model.fit(X_train,y_train)
 
 print('DecisionTreeClassifier:',dt_model.score(X_test, y_test))
 
-knn = KNeighborsClassifier(random_state=0,n_neighbors=5)
+knn = KNeighborsClassifier(n_neighbors=5)
 knn.fit(X_train, y_train)
 
 print('KNeighborsClassifier:',knn.score(X_test, y_test))
